@@ -6,3 +6,4 @@ pandas
 pydantic
 huggingface_hub
 fastapi
+uvicorn
