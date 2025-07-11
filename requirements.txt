@@ -1,6 +1,8 @@
 sentence-transformers
-faiss-spu
+faiss-cpu
 scikit-learn
 numpy
 pandas
 pydantic
+huggingface_hub
+fastapi
