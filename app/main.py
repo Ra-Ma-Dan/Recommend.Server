@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from typing import Optional, List
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
 import pandas as pd
 import numpy as np
@@ -10,6 +11,21 @@ from huggingface_hub import hf_hub_download
 
 
 app = FastAPI(title="Reccomender API")  # Create the app instance
+
+
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # <-- allow frontend URL here
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 REPO_ID = "Ra-Ma-Dan/recomend.er"
 # Global variables to hold loaded data
